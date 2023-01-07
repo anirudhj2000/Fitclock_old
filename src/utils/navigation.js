@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text,Button,Dimensions,View, Image} from 'react-native';
-import {NavigationContainer} from "@react-navigation/native";
 import {createStackNavigator} from "@react-navigation/stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from '../screens/home';
 import Circuits from '../screens/circuits';
 import Profile from '../screens/profile';
