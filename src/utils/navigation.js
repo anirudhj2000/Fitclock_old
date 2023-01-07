@@ -6,6 +6,10 @@ import HomeScreen from '../screens/home';
 import Circuits from '../screens/circuits';
 import Profile from '../screens/profile';
 import Calculators from '../screens/calculators';
+import Images from '../../Images/Images';
+
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
 
 const HomeStackNavigator = createStackNavigator();
 const HomeNavigator = () => {
@@ -21,10 +25,9 @@ const ScreenStackNavigator = createBottomTabNavigator();
 const ScreenNavigator = () => {
     return(
         <ScreenStackNavigator.Navigator
-            tabBarOptions={{
-                showLabel:false,
-
-                style:{
+            screenOptions={{
+                tabBarShowLabel : false,
+                tabBarStyle: {
                     height:windowHeight*0.08,
                     position:'absolute',
                     elevation:16,
@@ -42,7 +45,7 @@ const ScreenNavigator = () => {
                                 resizeMode='contain'
                                 source={!focused?Images.home:Images.home_alt}/>
                         </View>
-                        <Text style={{marginVertical:2.5,color:focused?'#36629c':'#000',fontWeight:'bold'}}>Home</Text>
+                        <Text style={{marginVertical:2.5,color:focused?'#36629c':'#000',fontWeight:focused?'bold':null}}>Home</Text>
                     </View>
                 ),
             }} />
@@ -56,7 +59,7 @@ const ScreenNavigator = () => {
                                 resizeMode='contain'
                                 source={!focused?Images.routine:Images.routine_alt}/>
                         </View>
-                        <Text style={{marginVertical:2.5,color:focused?'#36629c':'#000',fontWeight:'bold'}}>Circuits</Text>
+                        <Text style={{marginVertical:2.5,color:focused?'#36629c':'#000',fontWeight:focused?'bold':null}}>Circuits</Text>
                     </View>
                 ),
             }}/>
@@ -70,7 +73,7 @@ const ScreenNavigator = () => {
                                 resizeMode='contain'
                                 source={focused?Images.profile:Images.profile_alt}/>
                         </View>
-                        <Text style={{marginVertical:2.5,color:focused?'#36629c':'#000',fontWeight:'bold'}}>Profile</Text>
+                        <Text style={{marginVertical:2.5,color:focused?'#36629c':'#000',fontWeight:focused?'bold':null}}>Profile</Text>
                     </View>
                 ),
             }}/>

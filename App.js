@@ -17,7 +17,9 @@ import {
   View,
 } from 'react-native';
 
+import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native';
+import ScreenNavigator from './src/utils/navigation';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -25,8 +27,9 @@ import { NavigationContainer } from '@react-navigation/native';
 const App = () => {
 
   return (
-      <NavigationContainer>
-
+    
+      <NavigationContainer> 
+        <ScreenNavigator/>
       </NavigationContainer>
   );
 };
