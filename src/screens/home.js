@@ -1,6 +1,8 @@
 import React , {useEffect,useState} from 'react'
-import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet,ImageBackground,Dimensions, ScrollView} from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet,ImageBackground,Dimensions, ScrollView, FlatList} from 'react-native';
 import Images from '../../Images/Images';
+import Weekly from '../components/weekly';
+import CircuitCardHome from '../components/circuitCardHome';
 
 const sh = Dimensions.get('window').height;
 const sw = Dimensions.get('window').width;
@@ -33,8 +35,22 @@ const HomeScreen = () => {
                 </TouchableOpacity>
         </View>
         <View style={styles.streakView}>
-          
+          {/* <Text style={{fontSize:16,marginHorizontal:'2.5%',marginVertical:8}}>Streak 🔥</Text> */}
+          <Weekly style={{width:'100%',display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-around'}}/>
         </View>
+        <View style={styles.homeCircuits} >
+          <Text style={{fontSize:25}}>Recent Circuits</Text>
+          <FlatList
+            data={[1,2,3,4,5,6]}
+            renderItem={({ item }) => (
+              <CircuitCardHome/>
+            )}
+            //Setting the number of column
+            numColumns={2}
+            keyExtractor={(item, index) => index}
+          />
+        </View>
+        
     </ScrollView>
   )
 }
@@ -73,11 +89,23 @@ const styles = new StyleSheet.create({
 
     streakView : {
       width:'90%',
-      height:sw*0.15,
+      height:sh*0.05,
       backgroundColor:'#f0f0f0',
       alignSelf:'center',
       elevation:2,
       borderRadius:4,
-      marginTop:'5%'
+      marginTop:'5%',
+      display:'flex',
+      flexDirection:'column',
+      justifyContent:'center'
+    },
+
+    homeCircuits : {
+        width:'90%',
+        alignSelf:'center',
+        marginTop:'5%',
+        display:'flex',
+        marginBottom:'20%',
+        flexDirection:'column'
     }
 })

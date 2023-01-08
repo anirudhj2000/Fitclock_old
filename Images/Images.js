@@ -24,5 +24,6 @@ export default Images = {
     contact_us : require('../assets/contact-us.png'),
     logout : require('../assets/logout.png'),
     settings : require('../assets/settings.png'),
-    background_img : require('../assets/bodybuilder_background.png')
+    background_img : require('../assets/bodybuilder_background.png'),
+    background_img_2 : require('../assets/workout_bg.png'),
 };

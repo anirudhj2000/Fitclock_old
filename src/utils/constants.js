@@ -1,1 +1,1 @@
-export default weekdays = ['M','T','W','Th','F','S','Su']
+export default Weekdays = ['M','T','W','Th','F','S','Su'];
