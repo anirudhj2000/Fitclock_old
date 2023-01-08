@@ -1,0 +1,1 @@
+export default weekdays = ['M','T','W','Th','F','S','Su']

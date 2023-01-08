@@ -17,9 +17,8 @@ const ProfilePage = (props) => {
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View style={styles.container}>
             <View style={styles.header}>
-                <Text style={{fontSize:24}}>Profile</Text>
+                <Text style={{fontSize:32}}>Profile</Text>
             </View>
-            
             <View style={styles.profileCard}>
                 <View style={{height:windowHeight*0.1,width:windowHeight*0.1,borderRadius:windowHeight*0.05,backgroundColor:'#fff',marginHorizontal:'5%',justifyContent:'center',alignItems:'center'}}>
                     <Text style={{fontSize:48,color:'#000',opacity:0.7,marginBottom:5}}>{name[0]}</Text>
@@ -111,7 +110,7 @@ const styles = StyleSheet.create({
         alignSelf:'center',
         borderRadius:8,
         elevation:2,
-        marginVertical:'2.5%',
+        marginVertical:'5%',
         alignItems:'center'
     },
 
