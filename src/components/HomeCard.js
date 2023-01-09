@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text, StyleSheet,Dimensions,Image} from 'react-native';
+import { View, Text, StyleSheet,Dimensions,Image,TouchableOpacity} from 'react-native';
 import Images from '../../Images/Images';
 
 const sh = Dimensions.get('window').height;
@@ -7,10 +7,12 @@ const sw = Dimensions.get('window').width;
 
 const HomeCard = (props) => {
   return (
+    <TouchableOpacity onPress={props.onPress}>
     <View style={styles.cardBody}>
       <Image source={props.source} style={styles.image}/>
       <Text style={styles.title}>{props.title}</Text>
     </View>
+    </TouchableOpacity>
   )
 }
 

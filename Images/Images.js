@@ -26,5 +26,8 @@ export default Images = {
     settings : require('../assets/settings.png'),
     background_img : require('../assets/bodybuilder_background.png'),
     background_img_2 : require('../assets/workout_bg.png'),
-    background_bottom : require('../assets/background_bottom.png')
+    background_bottom : require('../assets/background_bottom.png'),
+    clock : require('../assets/clock.png'),
+    exercises_1 : require('../assets/exercise_1.png'),
+    rest : require('../assets/rest.png'),
 };
