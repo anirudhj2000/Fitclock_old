@@ -2,6 +2,7 @@ import React , {useState, useContext, useEffect,PureComponent} from 'react';
 import {View, Text, Image, SafeAreaView, ScrollView, TextInput, StyleSheet, TouchableOpacity, ImageBackground, Dimensions, Linking} from 'react-native';
 import Images from '../../Images/Images';
 import profileItems from '../utils/profileItems';
+import LinearGradient from 'react-native-linear-gradient';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -19,7 +20,8 @@ const ProfilePage = (props) => {
             <View style={styles.header}>
                 <Text style={{fontSize:32}}>Profile</Text>
             </View>
-            <View style={styles.profileCard}>
+            <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 2}} style={[styles.profileCard,{elevation:2}]} colors={['#8e9eab', '#eef2f3']}>
+            <View style={[styles.profileCard,{width:'100%'}]}>
                 <View style={{height:windowHeight*0.1,width:windowHeight*0.1,borderRadius:windowHeight*0.05,backgroundColor:'#fff',marginHorizontal:'5%',justifyContent:'center',alignItems:'center'}}>
                     <Text style={{fontSize:48,color:'#000',opacity:0.7,marginBottom:5}}>{name[0]}</Text>
                 </View>
@@ -32,9 +34,12 @@ const ProfilePage = (props) => {
                         <Text style={{marginHorizontal:'2.5%'}}>⭐ {streak} Day Streak</Text>
                     </View>
                 </View>
+            
             </View>
+            </LinearGradient>
 
-            <View style={styles.profileOptions}>
+            <LinearGradient start={{x: 0, y: 0}} end={{x: 0, y: 1}} style={[styles.profileOptions,{elevation:2}]} colors={['#00467F', '#A5CC82']}>
+            <View style={[styles.profileOptions,{width:'100%'}]}>
                 {
                     profileItems.map((item,key) => {
                         return(
@@ -47,9 +52,9 @@ const ProfilePage = (props) => {
                                             <View style={{justifyContent:'center'}}>
                                                 <Image style={{height:25,width:25,marginHorizontal:'2.5%'}} source={item.icon} />
                                             </View>
-                                            <View style={{marginHorizontal:'5%',justifyContent:'center'}}>
-                                                <Text style={{fontSize:20,opacity:0.7 }}>{item.name}</Text>
-                                                <Text style={{fontSize:12,marginTop:2.5}}>{item.description}</Text>
+                                            <View style={{marginHorizontal:'2.5%',justifyContent:'center'}}>
+                                                <Text style={{fontSize:20,opacity:0.7,color:'#fff'}}>{item.name}</Text>
+                                                <Text style={{fontSize:12,marginTop:2.5,color:'#fff'}}>{item.description}</Text>
                                             </View>
                                         </View>
                                     </TouchableOpacity>
@@ -58,6 +63,7 @@ const ProfilePage = (props) => {
                     })
                 }
             </View>
+            </LinearGradient>
 
             <View style={styles.footer}>
                 <Text style={{fontSize:14,opacity:0.5}}>Crafted with </Text>
@@ -108,10 +114,8 @@ const styles = StyleSheet.create({
         width:'90%',
         height:windowHeight*0.15,
         flexDirection:'row',
-        backgroundColor:'#c5f2bf',
         alignSelf:'center',
         borderRadius:8,
-        elevation:2,
         marginVertical:'5%',
         alignItems:'center'
     },
@@ -119,7 +123,6 @@ const styles = StyleSheet.create({
     profileOptions : {
         width:'90%',
         height:windowHeight*0.5,
-        backgroundColor:'#d1e9ff',
         alignSelf:'center',
         borderRadius:8,
         justifyContent:'center',

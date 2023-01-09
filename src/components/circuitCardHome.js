@@ -20,11 +20,11 @@ const CircuitCardHome = props => {
             <View style={styles.circuitInfo}>
                 <View style={{display:'flex',flexDirection:'row',alignItems:'baseline'}}>
                     <Image source={Images.exercises_1} style={{height:24,width:24,tintColor:'#c7c7c7'}}/>
-                    <Text style={{color:'#fff'}}>x{24}</Text>
+                    <Text style={{color:'#fff'}}>x{9}</Text>
                 </View>
                 <View style={{display:'flex',flexDirection:'row',alignItems:'baseline',bottom:0,height:'100%'}}>
                     <Image source={Images.rest} style={{height:20,width:20,tintColor:'#c7c7c7'}}/>
-                    <Text style={{color:'#fff'}}> x{24}</Text>
+                    <Text style={{color:'#fff'}}> x{4}</Text>
                 </View>
             </View>
         </LinearGradient>

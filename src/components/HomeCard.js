@@ -9,7 +9,9 @@ const HomeCard = (props) => {
   return (
     <TouchableOpacity onPress={props.onPress}>
     <View style={styles.cardBody}>
-      <Image source={props.source} style={styles.image}/>
+      <View style={styles.image}>
+        <Image source={props.source} style={{height:sh*0.07,width:sh*0.07}}/>
+      </View>
       <Text style={styles.title}>{props.title}</Text>
     </View>
     </TouchableOpacity>
@@ -30,10 +32,15 @@ const styles = new StyleSheet.create({
     image : {
       height:sh*0.070,
       width: sh*0.070,
+      backgroundColor:'#9bc5c3',
+      borderRadius:sh*0.07,
+      justifyContent:'center',
+      alignItems:'center',
+      overflow:'hidden'
     },
 
     title : {
-      fontSize:12,
-      marginTop:8
+      fontSize:14,
+      marginTop:4,
     }
 })

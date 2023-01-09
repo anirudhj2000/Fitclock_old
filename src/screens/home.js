@@ -45,7 +45,7 @@ const HomeScreen = () => {
           <Weekly style={{width:'100%',display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-around'}}/>
         </View>
         <View style={styles.homeCircuits} >
-          <Text style={{fontSize:25}}>Recent Circuits</Text>
+          <Text style={{fontSize:25,marginVertical:8}}>Recent Circuits</Text>
           <FlatList
             data={[1,2,3,4,5,6]}
             renderItem={({ item }) => (
