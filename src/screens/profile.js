@@ -1,5 +1,5 @@
 import React , {useState, useContext, useEffect,PureComponent} from 'react';
-import {View, Text, Image, SafeAreaView, ScrollView, TextInput, StyleSheet, TouchableOpacity, TouchableHighlight, Dimensions, Linking} from 'react-native';
+import {View, Text, Image, SafeAreaView, ScrollView, TextInput, StyleSheet, TouchableOpacity, ImageBackground, Dimensions, Linking} from 'react-native';
 import Images from '../../Images/Images';
 import profileItems from '../utils/profileItems';
 
@@ -78,6 +78,8 @@ const ProfilePage = (props) => {
                 </TouchableOpacity>
             </View>
         </View>
+        <ImageBackground source={Images.background_bottom} resizeMode="stretch" style={{height:windowHeight*0.1,width:'100%',
+        marginBottom:'15%'}}/>
         </ScrollView>
     )
 }
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         marginVertical:'2.5%',
         justifyContent:'center',
+        zIndex:2,
     },
 
     profileItemCard : {

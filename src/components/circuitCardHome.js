@@ -17,7 +17,7 @@ export default CircuitCardHome;
 
 const styles = new StyleSheet.create({
     cardContainer : {
-        width:sw*0.4,
+        width:sw*0.42,
         height:sh*0.2,
         backgroundColor:'#c7c7c7',
         borderRadius:4,

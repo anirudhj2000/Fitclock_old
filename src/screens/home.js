@@ -3,6 +3,8 @@ import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet,ImageBackground,
 import Images from '../../Images/Images';
 import Weekly from '../components/weekly';
 import CircuitCardHome from '../components/circuitCardHome';
+import HomeCard from '../components/HomeCard';
+import { menuItems } from '../utils/constants';
 
 const sh = Dimensions.get('window').height;
 const sw = Dimensions.get('window').width;
@@ -20,7 +22,11 @@ const HomeScreen = () => {
         </View>
       </ImageBackground>
       <View style={styles.menuView}>
-          
+          {menuItems.map((item) => {
+              return(
+                <HomeCard source={item.image} title={item.title} />
+              )
+          })}
       </View>
       <View style={{height:sh*0.1,width:'90%',marginHorizontal:'5%',marginTop:'7%',flexDirection:'row'}}>
                 <View style={{width:'80%',marginRight:'2.5%',height:'100%',borderWidth:1,borderRadius:4,backgroundColor:'#fff',borderColor:'#aaaaaa',elevation:4,justifyContent:'center',alignItems:'center'}}>
@@ -50,7 +56,8 @@ const HomeScreen = () => {
             keyExtractor={(item, index) => index}
           />
         </View>
-        
+        <ImageBackground source={Images.background_bottom} resizeMode="stretch" style={{height:sh*0.1,width:'100%',
+        marginBottom:'15%',marginTop:'-20%'}}/>
     </ScrollView>
   )
 }
@@ -85,6 +92,10 @@ const styles = new StyleSheet.create({
       marginTop:'-15%',
       elevation:2,
       borderRadius:8,
+      display:'flex',
+      flexDirection:'row',
+      justifyContent:'space-around',
+      alignItems:'center'
     },
 
     streakView : {
@@ -105,7 +116,8 @@ const styles = new StyleSheet.create({
         alignSelf:'center',
         marginTop:'5%',
         display:'flex',
-        marginBottom:'20%',
-        flexDirection:'column'
+        flexDirection:'column',
+        zIndex:2,
+        marginBottom:'20%'
     }
 })
