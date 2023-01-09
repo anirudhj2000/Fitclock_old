@@ -39,9 +39,9 @@ const ScreenNavigator = () => {
                 headerShown:false,
                 tabBarIcon:({focused}) =>(
                     <View style={{display:'flex',justifyContent:'center', alignItems:'center',width:'100%',marginHorizontal:10}}>
-                        <View style={{height:25,width:25,display:'flex',justifyContent:'center', alignItems:'center',backgroundColor:focused?'#aaaaaa':'#fff',borderRadius:20}}>
+                        <View style={{height:25,width:25,display:'flex',justifyContent:'center', alignItems:'center',backgroundColor:focused?'#c7c7c7':'#fff',borderRadius:20,shadowColor:'#c7c7c7'}}>
                             <Image
-                                style={{height:15,width:15,alignSelf:'center'}}
+                                style={{height:15,width:15,alignSelf:'center',tintColor:focused?'#36629c':'#000'}}
                                 resizeMode='contain'
                                 source={!focused?Images.home:Images.home_alt}/>
                         </View>
@@ -53,9 +53,9 @@ const ScreenNavigator = () => {
                 headerShown:false,
                 tabBarIcon:({focused}) =>(
                     <View style={{display:'flex',justifyContent:'center', alignItems:'center',width:'100%',marginHorizontal:10}}>
-                        <View style={{height:25,width:25,display:'flex',justifyContent:'center', alignItems:'center',backgroundColor:focused?'#aaaaaa':'#fff',borderRadius:20}}>
+                        <View style={{height:25,width:25,display:'flex',justifyContent:'center', alignItems:'center',backgroundColor:focused?'#c7c7c7':'#fff',borderRadius:20}}>
                             <Image
-                                style={{height:15,width:15,alignSelf:'center'}}
+                                style={{height:15,width:15,alignSelf:'center',tintColor:focused?'#36629c':'#000'}}
                                 resizeMode='contain'
                                 source={!focused?Images.routine:Images.routine_alt}/>
                         </View>
@@ -67,9 +67,9 @@ const ScreenNavigator = () => {
                 headerShown:false,
                 tabBarIcon:({focused}) =>(
                     <View style={{display:'flex',justifyContent:'center', alignItems:'center',width:'100%',marginHorizontal:10}}>
-                        <View style={{height:25,width:25,display:'flex',justifyContent:'center', alignItems:'center',backgroundColor:focused?'#aaaaaa':'#fff',borderRadius:20}}>
+                        <View style={{height:25,width:25,display:'flex',justifyContent:'center', alignItems:'center',backgroundColor:focused?'#c7c7c7':'#fff',borderRadius:20}}>
                             <Image
-                                style={{height:15,width:15,alignSelf:'center'}}
+                                style={{height:15,width:15,alignSelf:'center',tintColor:focused?'#36629c':'#000'}}
                                 resizeMode='contain'
                                 source={focused?Images.profile:Images.profile_alt}/>
                         </View>

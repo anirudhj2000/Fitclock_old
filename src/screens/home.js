@@ -1,16 +1,24 @@
 import React , {useEffect,useState} from 'react'
-import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet,ImageBackground,Dimensions, ScrollView, FlatList} from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet,ImageBackground,Dimensions, ScrollView, FlatList, Modal,Image} from 'react-native';
 import Images from '../../Images/Images';
 import Weekly from '../components/weekly';
 import CircuitCardHome from '../components/circuitCardHome';
 import HomeCard from '../components/HomeCard';
-import { menuItems } from '../utils/constants';
+import { menuItems, timer} from '../utils/constants';
+import { TextInput } from 'react-native-gesture-handler';
 
 const sh = Dimensions.get('window').height;
 const sw = Dimensions.get('window').width;
 
-const HomeScreen = () => {
+const HomeScreen = (props) => {
   const [name, setName] = useState("Anirudh Joshi");
+  const [toggle, setToggle] = useState(false);
+
+  const handleMenuClick = (title) => {
+      if(title == "Calculators"){
+          props.navigation.navigate('calculators')
+      }
+  }
 
   return (
     <ScrollView contentContainerStyle={{flexGrow:1}} style={styles.container}>
@@ -24,7 +32,7 @@ const HomeScreen = () => {
       <View style={styles.menuView}>
           {menuItems.map((item) => {
               return(
-                <HomeCard source={item.image} title={item.title} />
+                <HomeCard source={item.image} title={item.title} onPress={() => {handleMenuClick(item.title)}} />
               )
           })}
       </View>
@@ -58,7 +66,39 @@ const HomeScreen = () => {
         </View>
         <ImageBackground source={Images.background_bottom} resizeMode="stretch" style={{height:sh*0.1,width:'100%',
         marginBottom:'15%',marginTop:'-20%'}}/>
+
+        <Modal 
+          transparent={true}
+          visible={toggle} 
+          animationType={'fade'} >
+                <View style={styles.restModal}>
+                    <View style={{height:sh*0.8,marginTop:sh*0.2,backgroundColor:'#fff',borderTopLeftRadius:16,borderTopRightRadius:16,borderWidth:1,borderColor:'#c7c7c7',elevation:8}}>
+                        <TouchableOpacity style={{alignSelf:'flex-end',marginHorizontal:'5%',marginTop:'5%'}} onPress={() => {setToggle(false) }}>
+                            <Image source={Images.cross} style={{width:20,height:20}}/>
+                        </TouchableOpacity>
+                        <FlatList
+                          data={timer}
+                          renderItem={({ item }) => (
+                            <TouchableOpacity style={{marginHorizontal:'5%'}}>
+                              <View style={{width:sw*0.15,backgroundColor:'#c7c7c7',padding:8,marginVertical:4,borderRadius:4,justifyContent:'center',alignItems:'center'}}>
+                                <Text style={{fontSize:12}}>{item.title}</Text>
+                              </View>
+                            </TouchableOpacity>
+                          )}
+                          //Setting the number of column
+                          numColumns={4}
+                          style={{flexGrow:0,marginTop:'10%'}}
+                          keyExtractor={(item, index) => index.toString}
+                        />
+                        
+                       
+                    </View>
+                </View>
+        </Modal>
+        
     </ScrollView>
+
+    
   )
 }
 
@@ -119,5 +159,15 @@ const styles = new StyleSheet.create({
         flexDirection:'column',
         zIndex:2,
         marginBottom:'20%'
+    },
+    restModal : {
+      height:'100%',
+      width:'100%',
+      alignSelf:'flex-end',
+      backgroundColor:'rgba(0, 0, 0, 0.5)' ,
+    },
+
+    customCounter : {
+      marginVertical:'5%',
     }
 })

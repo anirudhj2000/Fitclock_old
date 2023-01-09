@@ -30,4 +30,7 @@ export default Images = {
     clock : require('../assets/clock.png'),
     exercises_1 : require('../assets/exercise_1.png'),
     rest : require('../assets/rest.png'),
+    cross : require('../assets/close.png'),
+    back :require('../assets/back.png'),
+    right_arrow : require('../assets/right-arrow.png')
 };
