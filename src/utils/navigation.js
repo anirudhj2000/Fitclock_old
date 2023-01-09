@@ -7,6 +7,7 @@ import Circuits from '../screens/circuits';
 import Profile from '../screens/profile';
 import Calculators from '../screens/calculators';
 import Images from '../../Images/Images';
+import Progress from '../screens/progress';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -17,6 +18,7 @@ const HomeNavigator = () => {
         <HomeStackNavigator.Navigator>
             <HomeStackNavigator.Screen name="Home" component={HomeScreen} options={{headerShown:false}} />
             <HomeStackNavigator.Screen name="calculators" component={Calculators} options={{headerShown:false}} />
+            <HomeStackNavigator.Screen name="Progress" component={Progress} options={{headerShown:false}} />
         </HomeStackNavigator.Navigator>
     )
 }

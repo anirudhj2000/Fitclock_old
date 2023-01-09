@@ -18,6 +18,14 @@ const HomeScreen = (props) => {
       if(title == "Calculators"){
           props.navigation.navigate('calculators')
       }
+
+      if(title == "Circuits"){
+        props.navigation.navigate(title)
+      }
+
+      if(title == "Progress"){
+        props.navigation.navigate(title)
+      }
   }
 
   return (
@@ -95,7 +103,7 @@ const HomeScreen = (props) => {
                     </View>
                 </View>
         </Modal>
-        
+
     </ScrollView>
 
     

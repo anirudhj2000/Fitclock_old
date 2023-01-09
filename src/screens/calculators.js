@@ -71,7 +71,6 @@ const styles = StyleSheet.create({
         backgroundColor:'#fcfcfc',
         flex:1,
         alignContent:'center',
-        marginTop:30,
     },
 
     header:{
@@ -81,7 +80,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',
         alignItems:'center',
         alignSelf:'center',
-        marginTop:'2.5%',
+        marginTop:'5%',
         display:'flex',
         alignItems:'center'
     },
