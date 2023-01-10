@@ -12,7 +12,7 @@ const CircuitCardHome = props => {
         
         <View style={styles.cardContainer}>
         <LinearGradient start={{x: 0, y: 0}} end={{x: 1, y: 0}} style={{height:'100%',width:'100%',borderRadius:4,padding:12}} colors={['#616161', '#9bc5c3']}>
-            <Text style={styles.title}>Circuits1</Text>
+            <Text style={styles.title}>{props.title}</Text>
             <View style={styles.time}>
                 <Image style={{height:12,width:12,tintColor:'#c7c7c7'}} source={Images.clock}/>
                 <Text style={{color:'#fff',fontSize:12}}>28 min</Text>

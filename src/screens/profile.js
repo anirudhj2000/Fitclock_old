@@ -26,7 +26,13 @@ const ProfilePage = (props) => {
                     <Text style={{fontSize:48,color:'#000',opacity:0.7,marginBottom:5}}>{name[0]}</Text>
                 </View>
                 <View style={{height:'100%',width:windowWidth*0.7,flexDirection:'column',justifyContent:'center'}}>
-                    <Text style={{fontSize:20,marginHorizontal:'2.5%',opacity:0.8}}>{name}</Text>
+                    <View style={{display:'flex',flexDirection:'row',alignItems:'baseline'}}>  
+                        <Text style={{fontSize:20,marginHorizontal:'2.5%',opacity:0.8}}>{name}</Text>
+                        <TouchableOpacity>
+                            <Text style={{color:'#30a8f2',textDecorationLine:'underline'}}>Edit</Text>
+                        </TouchableOpacity>
+                    </View>
+                    
                     <Text style={{fontSize:16,marginHorizontal:'2.5%',opacity:0.4}}>{email}</Text>
                     <View style={{width:'100%',marginVertical:10,flexDirection:'row'}}>
                         <Text style={{marginHorizontal:'2.5%'}}>⌛ {sessions} Sessions</Text>

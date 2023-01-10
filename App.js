@@ -20,6 +20,7 @@ import {
 import 'react-native-gesture-handler'
 import { NavigationContainer } from '@react-navigation/native';
 import ScreenNavigator from './src/utils/navigation';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 /* $FlowFixMe[missing-local-annot] The type annotation(s) required by Flow's
  * LTI update could not be added via codemod */
@@ -27,10 +28,12 @@ import ScreenNavigator from './src/utils/navigation';
 const App = () => {
 
   return (
-    
-      <NavigationContainer> 
-        <ScreenNavigator/>
-      </NavigationContainer>
+      <SafeAreaProvider>
+        <NavigationContainer> 
+          <ScreenNavigator/>
+        </NavigationContainer>
+      </SafeAreaProvider>
+      
   );
 };
 

@@ -65,7 +65,7 @@ const HomeScreen = (props) => {
           <FlatList
             data={[1,2,3,4,5,6]}
             renderItem={({ item }) => (
-              <CircuitCardHome/>
+              <CircuitCardHome title={`Circuits ${item}`}/>
             )}
             //Setting the number of column
             numColumns={2}

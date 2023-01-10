@@ -8,6 +8,8 @@ import Profile from '../screens/profile';
 import Calculators from '../screens/calculators';
 import Images from '../../Images/Images';
 import Progress from '../screens/progress';
+import CreateCircuits from '../screens/createCircuits';
+import UserDetails from '../screens/userDetails';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -23,10 +25,30 @@ const HomeNavigator = () => {
     )
 }
 
+const CircuitsStackNavigator = createStackNavigator();
+const CircuitsNavigator = () => {
+    return(
+        <CircuitsStackNavigator.Navigator>
+            <CircuitsStackNavigator.Screen name = "CircuitsScreen" component={Circuits} options={{headerShown:false}}/>
+            <CircuitsStackNavigator.Screen name = "CreateCircuits" component={CreateCircuits} options={{headerShown:false}}/>
+        </CircuitsStackNavigator.Navigator>
+    )
+}
+
+const ProfileStackNavigator = createStackNavigator();
+const ProfileNavigator = () => {
+    return(
+        <ProfileStackNavigator.Navigator>
+            <ProfileStackNavigator.Screen name = "ProfileScreen" component={Profile}  options={{headerShown:false}}/>
+            <ProfileStackNavigator.Screen name = "EditProfile" component={UserDetails}  options={{headerShown:false}}/>
+        </ProfileStackNavigator.Navigator>
+    )
+}
+
 const ScreenStackNavigator = createBottomTabNavigator();
 const ScreenNavigator = () => {
     return(
-        <ScreenStackNavigator.Navigator
+        <ScreenStackNavigator.Navigator 
             screenOptions={{
                 tabBarShowLabel : false,
                 tabBarStyle: {
@@ -35,7 +57,7 @@ const ScreenNavigator = () => {
                     elevation:16,
                     paddingHorizontal:10,
                     backgroundColor:'#fff',
-                }
+                },
             }}>
             <ScreenStackNavigator.Screen name="Home" component={HomeNavigator}  options={{
                 headerShown:false,
@@ -51,7 +73,7 @@ const ScreenNavigator = () => {
                     </View>
                 ),
             }} />
-            <ScreenStackNavigator.Screen name="Circuits" component={Circuits} options={{
+            <ScreenStackNavigator.Screen name="Circuits" component={CircuitsNavigator} options={{
                 headerShown:false,
                 tabBarIcon:({focused}) =>(
                     <View style={{display:'flex',justifyContent:'center', alignItems:'center',width:'100%',marginHorizontal:10}}>
