@@ -1,5 +1,5 @@
 import React , {useEffect,useState} from 'react'
-import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet,ImageBackground,Dimensions, ScrollView, FlatList, Modal,Image} from 'react-native';
+import { View, Text, SafeAreaView, TouchableOpacity, StyleSheet,ImageBackground,Dimensions, ScrollView, FlatList, Modal,Image,BackHandler,Alert} from 'react-native';
 import Images from '../../Images/Images';
 import Weekly from '../components/weekly';
 import CircuitCardHome from '../components/circuitCardHome';
@@ -27,6 +27,27 @@ const HomeScreen = (props) => {
         props.navigation.navigate(title)
       }
   }
+
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert("Hold on!", "Are you sure you want to exit", [
+        {
+          text: "Cancel",
+          onPress: () => null,
+          style: "cancel"
+        },
+        { text: "YES", onPress: () => BackHandler.exitApp() }
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      "hardwareBackPress",
+      backAction
+    );
+
+    return () => backHandler.remove();
+  },[])
 
   return (
     <ScrollView contentContainerStyle={{flexGrow:1}} style={styles.container}>

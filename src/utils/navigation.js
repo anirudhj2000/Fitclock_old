@@ -10,6 +10,8 @@ import Images from '../../Images/Images';
 import Progress from '../screens/progress';
 import CreateCircuits from '../screens/createCircuits';
 import UserDetails from '../screens/userDetails';
+import Signup from '../screens/signup';
+import Login from '../screens/login';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -87,7 +89,7 @@ const ScreenNavigator = () => {
                     </View>
                 ),
             }}/>
-            <ScreenStackNavigator.Screen name="Profile" component={Profile} options={{
+            <ScreenStackNavigator.Screen name="Profile" component={ProfileNavigator} options={{
                 headerShown:false,
                 tabBarIcon:({focused}) =>(
                     <View style={{display:'flex',justifyContent:'center', alignItems:'center',width:'100%',marginHorizontal:10}}>
@@ -105,5 +107,16 @@ const ScreenNavigator = () => {
     );
 }
 
+const AppStackNavigator = createStackNavigator()
+const AppNavigator = () => {
+    return(
+        <AppStackNavigator.Navigator>
+            <AppStackNavigator.Screen name='Login' component={Login} options={{headerShown:false}}/>
+            <AppStackNavigator.Screen name='App' component={ScreenNavigator} options={{headerShown:false}}/>
+            <AppStackNavigator.Screen name='Signup' component={Signup} options={{headerShown:false}}/>
+        </AppStackNavigator.Navigator>
+    )
+}
 
-export default ScreenNavigator;
+
+export default AppNavigator;

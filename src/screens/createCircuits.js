@@ -17,7 +17,7 @@ const CreateCircuits = (props) => {
             <TouchableOpacity onPress={() => {HandleBackPress()}}>
                 <Image source={Images.back} style={{height:20, width:20,opacity:0.5}} />
             </TouchableOpacity>
-            <Text style={{fontSize:24,color:'#000',marginHorizontal:'2.5%'}}>CreateCircuits</Text>
+            <Text style={{fontSize:24,color:'#000',marginHorizontal:'5%'}}>CreateCircuits</Text>
         </View>
     </View>
   )

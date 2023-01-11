@@ -28,7 +28,7 @@ const ProfilePage = (props) => {
                 <View style={{height:'100%',width:windowWidth*0.7,flexDirection:'column',justifyContent:'center'}}>
                     <View style={{display:'flex',flexDirection:'row',alignItems:'baseline'}}>  
                         <Text style={{fontSize:20,marginHorizontal:'2.5%',opacity:0.8}}>{name}</Text>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => {props.navigation.navigate('EditProfile')}}>
                             <Text style={{color:'#30a8f2',textDecorationLine:'underline'}}>Edit</Text>
                         </TouchableOpacity>
                     </View>
