@@ -84,6 +84,7 @@ const HomeScreen = (props) => {
         <View style={styles.homeCircuits} >
           <Text style={{fontSize:25,marginVertical:8}}>Recent Circuits</Text>
           <FlatList
+            nestedScrollEnabled
             data={[1,2,3,4,5,6]}
             renderItem={({ item }) => (
               <CircuitCardHome title={`Circuits ${item}`}/>
