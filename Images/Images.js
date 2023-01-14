@@ -33,5 +33,6 @@ export default Images = {
     cross : require('../assets/close.png'),
     back :require('../assets/back.png'),
     right_arrow : require('../assets/right-arrow.png'),
-    plus : require('../assets/plus.png')
+    plus : require('../assets/plus.png'),
+    logo : require('../assets/logo.png'),
 };

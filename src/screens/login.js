@@ -1,5 +1,5 @@
 import React ,{useState,useEffect}from 'react'
-import { View, TextInput, Text, TouchableOpacity, StyleSheet} from 'react-native'
+import { View, TextInput, Text, TouchableOpacity, StyleSheet,Image} from 'react-native'
 
 const Login = (props) => {
 
@@ -19,21 +19,34 @@ const Login = (props) => {
 
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Fitclock</Text>
+        <Image source={Images.logo} resizeMode='contain' style={{width:'80%',height:'10%',display:'flex',alignSelf:'center',marginVertical:'10%'}}/>
         <View style={styles.login}>
-          <Text style={{fontSize:20}}>Enter details to Sign in</Text>
+          <Text style={{fontSize:20,color:'#000'}}>Enter details to sign in</Text>
         </View>
-        <View style={styles.inputView}>
-          <TextInput value={email} onChangeText={(text) => {setEmail(text)}} placeholder='Email' styles={[styles.input]} />
-        </View>
-        <View style={styles.inputView}>
-          <TextInput value={password} onChangeText={(text) => {setPassword(text)}} secureTextEntry={true} placeholder='Password' styles={[styles.input]} />
+        <View style={styles.inputUI}>
+            <Text style={{color:'#fff'}}>Email</Text>
+            <View style={styles.inputView}>
+              <TextInput value={email} onChangeText={(text) => {setEmail(text)}} placeholder='Email' styles={[styles.input]} />
+            </View>
+            <Text style={{color:'#fff',marginTop:'5%'}}>Password</Text>
+            <View style={styles.inputView}>
+              <TextInput value={password} onChangeText={(text) => {setPassword(text)}} secureTextEntry={true} placeholder='Password' styles={[styles.input]} />
+            </View>
+            <TouchableOpacity style={{marginTop:8}} onPress={() => {}}>
+              <Text style={{textDecorationLine:'underline',color:'#fff'}}>Forgot Password?</Text>
+            </TouchableOpacity>
         </View>
         <TouchableOpacity onPress={() => {handleLoginClick()}}>
             <View style={styles.loginButton}>
-              <Text>Login</Text>
+              <Text style={{color:'#fff',fontSize:16}}>Login</Text>
             </View>
         </TouchableOpacity>
+        <View style={{marginHorizontal:'5%',flexDirection:'row'}}>
+            <Text>Don't have a account?</Text>
+            <TouchableOpacity  onPress={() => {}}>
+                <Text style={{textDecorationLine:'underline',color:'#3366CC',marginHorizontal:4}}>Sign up</Text>
+            </TouchableOpacity>
+        </View>
     </View>
   )
 }
@@ -45,7 +58,8 @@ const styles = new StyleSheet.create({
         height:'100%',
         width:'100%',
         display:'flex',
-        flexDirection:'column'
+        flexDirection:'column',
+        backgroundColor:'#fff'
     },
 
     login : {
@@ -56,11 +70,19 @@ const styles = new StyleSheet.create({
     title : {
       fontSize:32,
       alignSelf:'center',
-      marginVertical:'5%'
+      marginVertical:'10%',
+      color:'#000'
     },
 
+    inputUI : {
+      marginHorizontal:'5%',
+      padding:16,
+      backgroundColor:'#0d2852',
+      marginVertical:'5%',
+      borderRadius:4,
+    },  
+
     input : {
-      backgroundColor:'#c7c7c7',
       width:'100%',
     },
 
@@ -76,10 +98,10 @@ const styles = new StyleSheet.create({
     },
 
     inputView : {
-      width:'90%',
+      width:'100%',
       alignSelf:'center',
-      marginVertical:'5%',
-      backgroundColor:'#c7c7c7',
+      marginVertical:'2.5%',
+      backgroundColor:'#fff',
       borderRadius:4
     }
 })
