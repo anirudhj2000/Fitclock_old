@@ -66,20 +66,18 @@ const calculators = [
         name : "BMI calculator",
         description : "Body mass index calculator",
         id : 1,
+        tag:'BMI'
     },
     {
        name : "BMR calculator",
        description : "Basal metabolic rate calculator ",
        id : 2,
+       tag:'BMR'
    },
    {
        name : "Ideal weight calculator",
        description : "Ideal Weight Calculator computes ideal body weight (IBW) ",
        id : 3,
-   },
-   {
-       name : "Base calorie calculator",
-       description : "Calculate base calorie requirements for the day",
-       id : 4,
+       tag : 'IWC'
    },
 ];

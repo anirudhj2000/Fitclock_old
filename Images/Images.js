@@ -35,4 +35,5 @@ export default Images = {
     right_arrow : require('../assets/right-arrow.png'),
     plus : require('../assets/plus.png'),
     logo : require('../assets/logo.png'),
+    alert : require('../assets/alert_1.png')
 };
