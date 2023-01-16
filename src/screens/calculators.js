@@ -2,6 +2,7 @@ import React , {useState, useContext, useEffect,PureComponent} from 'react';
 import {View, Text, Image, SafeAreaView, ScrollView, TextInput, StyleSheet, TouchableOpacity, TouchableHighlight, Dimensions, FlatList, Modal} from 'react-native';
 import Images from '../../Images/Images';
 import { calculators } from '../utils/constants';
+import { RadioGroup } from 'react-native-radio-buttons-group';
 
 const windowHeight = Dimensions.get('window').height;
 const windowWidth = Dimensions.get('window').width;
@@ -13,7 +14,18 @@ const Calculator = (props) => {
     const [age, setAge] = useState(0);
     const [height, setHeight] = useState(0);
     const [weight, setWeight] = useState(0);
-    const [gender, setGender] = useState('Female')
+    const [radioButtons, setRadioButtons] = useState([
+        {
+            id: '1', // acts as primary key, should be unique and non-empty string
+            label: 'Female',
+            value: 'Female'
+        },
+        {
+            id: '2',
+            label: 'Male',
+            value: 'Male'
+        }
+    ]);
 
     const HandleBackPress = () => {
         props.navigation.pop();
@@ -22,6 +34,10 @@ const Calculator = (props) => {
     const handleCalculatorPress = (item) => {
         setToggle(!toggle);
         setItem(item);
+    }
+
+    const onPressRadioButton = (radioButtonsArray) => {
+        setRadioButtons(radioButtonsArray);
     }
 
     return(
@@ -76,7 +92,12 @@ const Calculator = (props) => {
                                 </View>
                             </View>
                             <View style={[styles.menuView]}>
-                                <Text style={styles.titleItem}>Gender: </Text>
+                                <Text style={[styles.titleItem,{marginRight:'2.5%'}]}>Gender: </Text>
+                                <RadioGroup 
+                                    layout='row'
+                                    radioButtons={radioButtons} 
+                                    onPress={onPressRadioButton} 
+                                />
                             </View>
                             <View style={[styles.menuView]}>
                                 <Text style={styles.titleItem}>Height: </Text>
@@ -85,13 +106,15 @@ const Calculator = (props) => {
                                 </View>
                                 <Text>CM</Text>
                             </View>
+                            { calcItem.tag != 'IWC' ?
                             <View style={[styles.menuView]}>
                                 <Text style={styles.titleItem}>Weight: </Text>
                                 <View style={{marginHorizontal:'5%',height:'100%',width:'30%',borderRadius:4,borderWidth:1,borderColor:'#c7c7c7'}}>
                                     <TextInput keyboardType='decimal-pad' value={weight} placeholder={'range 2-1'} style={{paddingHorizontal:8}} onChangeText={(val) => setWeight(val)} />
                                 </View>
                                 <Text>KG</Text>
-                            </View>
+                            </View> : null
+                            }
                             <View style={{display:'flex',flexDirection:'row',marginHorizontal:'5%',marginTop:'5%'}}>
                                 <View style={{borderWidth:1,borderColor:'#3d91ff',width:'20%',justifyContent:'center',alignItems:'center',padding:8,borderRadius:2,marginRight:'5%'}}>
                                     <Text style={{color:'#3d91ff'}}>Reset</Text>
